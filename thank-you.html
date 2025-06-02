@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>상담 신청 완료 | 통합실손전환센터</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+        }
+        
+        .animate-checkmark {
+            animation: checkmark 0.8s ease-in-out;
+        }
+        
+        @keyframes checkmark {
+            0% {
+                transform: scale(0);
+                opacity: 0;
+            }
+            50% {
+                transform: scale(1.1);
+                opacity: 1;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+        
+        .fade-in {
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
+</head>
+<body class="bg-gradient-to-br from-green-50 to-green-100 min-h-screen">
+    <div class="min-h-screen flex items-center justify-center px-4">
+        <div class="max-w-2xl w-full">
+            <!-- 성공 메시지 -->
+            <div class="bg-white rounded-2xl shadow-2xl p-12 text-center fade-in">
+                <!-- 체크마크 아이콘 -->
+                <div class="mb-8">
+                    <div class="w-24 h-24 bg-green-500 rounded-full flex items-center justify-center mx-auto animate-checkmark">
+                        <i class="fas fa-check text-white text-4xl"></i>
+                    </div>
+                </div>
+                
+                <!-- 제목 -->
+                <h1 class="text-4xl font-bold text-gray-800 mb-4">
+                    상담 신청이 <span class="text-green-600">완료</span>되었습니다!
+                </h1>
+                
+                <!-- 부제목 -->
+                <p class="text-xl text-gray-600 mb-8">
+                    소중한 정보를 보내주셔서 감사합니다.<br>
+                    전문 상담사가 빠른 시간 내에 연락드리겠습니다.
+                </p>
+                
+                <!-- 안내 사항 -->
+                <div class="bg-green-50 rounded-xl p-6 mb-8">
+                    <h3 class="text-lg font-bold text-green-800 mb-4">
+                        <i class="fas fa-info-circle mr-2"></i>
+                        다음 단계 안내
+                    </h3>
+                    <div class="space-y-3 text-left">
+                        <div class="flex items-start">
+                            <div class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">1</div>
+                            <p class="text-gray-700">접수된 내용을 바탕으로 전문 상담사가 배정됩니다</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">2</div>
+                            <p class="text-gray-700">1-2일 내로 상담사가 직접 연락드립니다</p>
+                        </div>
+                        <div class="flex items-start">
+                            <div class="bg-green-500 text-white rounded-full w-6 h-6 flex items-center justify-center text-sm font-bold mr-3 mt-1">3</div>
+                            <p class="text-gray-700">맞춤형 상담을 통해 최적의 전환 방안을 안내드립니다</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 연락처 정보 -->
+                <div class="bg-gray-50 rounded-xl p-6 mb-8">
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">
+                        <i class="fas fa-phone mr-2"></i>
+                        급한 문의사항이 있으시다면
+                    </h3>
+                    <div class="flex flex-col sm:flex-row items-center justify-center space-y-2 sm:space-y-0 sm:space-x-6">
+                        <a href="tel:1544-0432" class="bg-green-600 text-white px-6 py-3 rounded-lg font-bold hover:bg-green-700 transition duration-300">
+                            <i class="fas fa-phone mr-2"></i>1544-0432
+                        </a>
+                        <p class="text-gray-600">평일 9:00-18:00</p>
+                    </div>
+                </div>
+                
+                <!-- 버튼들 -->
+                <div class="space-y-4">
+                    <a href="index - 복사본.html" class="bg-green-600 text-white px-8 py-3 rounded-lg font-bold hover:bg-green-700 transition duration-300 inline-block">
+                        <i class="fas fa-home mr-2"></i>메인 페이지로 돌아가기
+                    </a>
+                    
+                    <div class="text-center">
+                        <p class="text-sm text-gray-500">
+                            <i class="fas fa-lock mr-1"></i>
+                            개인정보는 안전하게 보호되며, 상담 목적으로만 사용됩니다
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- 추가 정보 -->
+            <div class="mt-8 text-center text-gray-600">
+                <p class="text-sm">
+                    통합실손전환센터(안심보험센터) | 대표전화: 1544-0432<br>
+                    경기 성남시 중원구 광명로 316 12층 (금광동.CNC타워)
+                </p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- 자동 리다이렉트 스크립트 (선택사항) -->
+    <script>
+        // 30초 후 자동으로 메인 페이지로 이동 (선택사항)
+        // setTimeout(() => {
+        //     window.location.href = 'index - 복사본.html';
+        // }, 30000);
+    </script>
+</body>
+</html> 
