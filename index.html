@@ -1,0 +1,1573 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>퇴직 후에도 든든한 건강보장 | 단체실손 무심사 개인전환</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free@5.15.4/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-green: #4CAF50;
+            --light-green: #A5D6A7;
+            --dark-green: #388E3C;
+            --accent-green: #66BB6A;
+            --lightest-green: #E8F5E9;
+            --green-hover: #2E7D32;
+            --primary-blue: #4CAF50; /* 파란색을 초록색으로 대체 */
+        }
+        
+        body {
+            font-family: 'Noto Sans KR', sans-serif;
+            color: #333;
+            line-height: 1.6;
+        }
+        
+        .gradient-green {
+            background: linear-gradient(135deg, var(--primary-green), #6abe6e);
+        }
+        
+        .gradient-light {
+            background: linear-gradient(135deg, #F5FFF5, var(--light-green));
+        }
+        
+        .btn-green {
+            background-color: var(--primary-green);
+            color: white;
+            transition: all 0.3s ease;
+            box-shadow: 0 4px 12px rgba(72, 187, 219, 0.3);
+            position: relative;
+            overflow: hidden;
+            z-index: 1;
+        }
+        
+        .btn-green:before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+            transition: all 0.6s ease;
+            z-index: -1;
+        }
+        
+        .btn-green:hover {
+            background-color: var(--green-hover);
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .btn-green:hover:before {
+            left: 100%;
+        }
+        
+        .header {
+            transition: all 0.3s ease;
+        }
+        
+        .header-transparent {
+            background-color: transparent;
+            box-shadow: none;
+        }
+        
+        .header-scrolled {
+            background-color: rgba(255, 255, 255, 0.95);
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .header-transparent .nav-link {
+            color: white;
+        }
+        
+        .header-transparent .brand-name {
+            color: white;
+        }
+        
+        .header-scrolled .nav-link {
+            color: var(--primary-green);
+        }
+        
+        .header-scrolled .brand-name {
+            color: var(--primary-green);
+        }
+        
+        .benefit-card {
+            transition: all 0.3s ease;
+        }
+        
+        .benefit-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 25px rgba(0, 82, 204, 0.2);
+        }
+        
+        .process-step {
+            position: relative;
+        }
+        
+        .process-step:not(:last-child)::after {
+            content: '';
+            position: absolute;
+            top: 40px;
+            right: -15%;
+            width: 30%;
+            height: 2px;
+            background-color: #ccc;
+        }
+        
+        @media (max-width: 768px) {
+            .process-step:not(:last-child)::after {
+                top: auto;
+                right: auto;
+                bottom: -15px;
+                left: 50%;
+                width: 2px;
+                height: 30px;
+                transform: translateX(-50%);
+            }
+        }
+        
+        .faq-item {
+            transition: all 0.3s ease;
+        }
+        
+        .faq-answer {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease;
+        }
+        
+        .faq-active .faq-answer {
+            max-height: 500px;
+        }
+        
+        .shadow-custom {
+            box-shadow: 0 4px 20px rgba(0, 82, 204, 0.15);
+        }
+        
+        .shield-pattern {
+            background-image: url('data:image/svg+xml;charset=utf8,%3Csvg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"%3E%3Cpath fill="%23ffffff" fill-opacity="0.05" d="M50 0 L100 25 L100 75 L50 100 L0 75 L0 25 Z"%3E%3C/path%3E%3C/svg%3E');
+            background-size: 40px 40px;
+        }
+        
+        input:focus, select:focus {
+            outline: none;
+            box-shadow: 0 0 0 3px rgba(0, 82, 204, 0.2);
+        }
+
+        .testimonial-slider {
+            overflow: hidden;
+            position: relative;
+        }
+        
+        .testimonials {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+        
+        .testimonial {
+            min-width: 100%;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+        
+        .float-animation {
+            animation: float 4s ease-in-out infinite;
+        }
+        
+        .pulsate {
+            animation: pulsate 2s ease-in-out infinite;
+        }
+        
+        @keyframes pulsate {
+            0% {
+                transform: scale(1);
+                opacity: 1;
+            }
+            50% {
+                transform: scale(1.05);
+                opacity: 0.8;
+            }
+            100% {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        /* Improved check icon for mobile */
+        .check-icon {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 28px;
+            height: 28px;
+            border-radius: 50%;
+            margin-right: 12px;
+            margin-top: 2px;
+        }
+
+        /* Hero Section with Full Background Image */
+        .hero-section {
+            position: relative;
+            height: 100vh;
+            min-height: 600px;
+            display: flex;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .hero-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-size: cover;
+            background-position: center;
+            z-index: 0;
+        }
+
+        .hero-text-right {
+            max-width: 600px;
+            text-align: left;
+            text-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 1.5rem;
+            color: 
+            #ffffff;
+        }
+        
+        .hero-subtitle {
+            font-size: 2rem;
+            color: #ffffff;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+        
+        .hero-description {
+            font-size: 1.5rem;
+            line-height: 1.5;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .hero-content {
+            position: relative;
+            z-index: 10;
+            max-width: 1200px;
+            margin: 0;
+            padding: 0;
+            width: 100%;
+            height: 100%;
+        }
+        
+        .hero-container-left {
+            padding-left: 12rem;
+            width: 100%;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-container-left {
+                /* 모바일에서 가운데 정렬 */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                padding-left: 2rem;
+                padding-right: 2rem;
+            }
+            
+            .hero-buttons {
+                display: flex;
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-section {
+                height: auto;
+                padding: 120px 0 100px;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .hero-container-left {
+                padding-left: 2rem;
+                padding-right: 2rem;
+                /* 모바일에서 완전 가운데 정렬 */
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+            }
+            
+            .hero-text-right {
+                text-align: center;
+                max-width: 100%;
+            }
+            
+            .hero-buttons {
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                gap: 1rem;
+                width: 100%;
+            }
+            
+            .hero-buttons > a {
+                width: 80%;
+                margin: 0;
+                text-align: center;
+            }
+            
+            .flex.space-x-4 {
+                margin-left: 0 !important;
+                margin-right: 0 !important;
+                display: flex !important;
+                flex-direction: column !important;
+                gap: 1rem !important;
+                align-items: center !important;
+            }
+        }
+        
+        .btn-hero {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: 700;
+            transition: all 0.3s ease;
+            border: 2px solid #4CAF50;
+            box-shadow: 0 4px 15px rgba(76, 175, 80, 0.3);
+        }
+        
+        .btn-hero:hover {
+            background-color: #388E3C;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(76, 175, 80, 0.4);
+        }
+        
+        .btn-hero-outline {
+            background-color: transparent;
+            color: white;
+            font-weight: 600;
+            border: 2px solid white;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-hero-outline:hover {
+            background-color: rgba(255, 255, 255, 0.2);
+            transform: translateY(-3px);
+        }
+
+        /* Enhanced mobile responsiveness */
+        @media (max-width: 768px) {
+            .hero-title {
+                font-size: 3.5rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.7rem;
+            }
+            
+            .hero-description {
+                font-size: 1.3rem;
+            }
+            
+            .hero-text-right {
+                text-align: left;
+                max-width: 550px;
+            }
+        }
+        
+        @media (max-width: 640px) {
+            .hero-section {
+                height: auto;
+                padding: 120px 0 100px;
+            }
+            
+            .hero-title {
+                font-size: 2.8rem;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.5rem;
+            }
+            
+            .hero-description {
+                font-size: 1.1rem;
+            }
+            
+            .hero-text-right {
+                text-align: left;
+            }
+            
+            .flex.space-x-4 {
+                flex-direction: column;
+                gap: 1rem;
+            }
+            
+            .flex.space-x-4 > * {
+                width: 100%;
+            }
+        }
+        
+        .hero-title span {
+            color: #66BB6A;
+        }
+
+        .hero-overlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(0, 0, 0, 0.3); /* 옅은 검은색 오버레이 */
+            z-index: 1; /* hero-bg (0) 와 hero-content (10) 사이 */
+        }
+        
+        /* 추가 모바일 반응형 스타일 */
+        @media (max-width: 480px) {
+            .hero-title {
+                font-size: 2.2rem !important;
+                line-height: 1.2;
+            }
+            
+            .hero-subtitle {
+                font-size: 1.3rem !important;
+            }
+            
+            .hero-description {
+                font-size: 1rem !important;
+                line-height: 1.4;
+            }
+            
+            .hero-container-left {
+                padding-left: 1rem !important;
+                padding-right: 1rem !important;
+            }
+            
+            /* 헤더 모바일 최적화 */
+            .brand-name {
+                font-size: 1rem !important;
+            }
+            
+            .btn-green {
+                font-size: 0.875rem !important;
+                padding: 0.5rem 0.75rem !important;
+            }
+        }
+        
+        /* xs 화면 크기 정의 */
+        @media (min-width: 480px) {
+            .xs\:inline {
+                display: inline !important;
+            }
+            .xs\:hidden {
+                display: none !important;
+            }
+        }
+        
+        @media (max-width: 479px) {
+            .xs\:inline {
+                display: none !important;
+            }
+            .xs\:hidden {
+                display: inline !important;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- 고정 헤더 -->
+    <header class="header header-transparent fixed w-full z-50 py-3">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center">
+                <div class="text-lg md:text-2xl font-bold brand-name">
+                    <i class="fas fa-shield-alt mr-1 md:mr-2"></i>
+                    <span class="hidden sm:inline">통합실손전환센터(안심보험센터)</span>
+                    <span class="sm:hidden">안심보험센터</span>
+                </div>
+            </div>
+            <div class="flex items-center space-x-2 md:space-x-4">
+                <a href="#contact" class="hidden lg:inline-block font-medium nav-link hover:text-blue-300">무료 상담</a>
+                <a href="tel:1544-0432" class="btn-green text-sm md:text-base font-bold py-2 px-3 md:py-2 md:px-4 rounded-lg whitespace-nowrap">
+                    <i class="fas fa-phone-alt mr-1 md:mr-2"></i>
+                    <span class="hidden xs:inline">1544-0432</span>
+                    <span class="xs:hidden">전화</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- 메인 히어로 섹션 (전체 화면 배경 이미지) -->
+    <section class="hero-section">
+        <!-- 배경 이미지 -->
+        <div class="hero-bg" style="background-image: url(img/main.jpg);"></div>
+        <!-- 옅은 검은색 오버레이 추가 -->
+        <div class="hero-overlay"></div>
+        
+        <div class="hero-content">
+            <div class="flex justify-start h-full items-center hero-container-left">
+                <div class="hero-text-right">
+                    <div class="hero-subtitle mb-2">퇴직 후에도</div>
+                    <h1 class="hero-title">
+                        든든한 <span style="color: #66BB6A;">건강보장</span>
+                    </h1>
+                    
+                    <p class="hero-description">
+                        단체실손보험을 복잡한 심사 없이<br>무심사로 개인보험 전환
+                    </p>
+                    
+                    <div class="flex flex-col sm:flex-row space-y-4 sm:space-y-0 sm:space-x-4 mt-8 hero-buttons items-center justify-center">
+                        <a href="#contact" class="btn-hero py-3 px-6 md:px-8 rounded-full text-center w-full sm:w-auto">
+                            무료 상담 신청하기
+                        </a>
+                        <a href="#conditions" class="btn-hero-outline py-3 px-6 rounded-full text-center w-full sm:w-auto">
+                            서비스 알아보기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 핵심 혜택 소개 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">단체실손 전환의 <span style="color: #4CAF50;">핵심 혜택</span></h2>
+                <p class="text-lg text-gray-600">퇴직자를 위한 특별한 보험 전환 혜택을 확인하세요</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 혜택 1 -->
+                <div class="benefit-card bg-white rounded-xl p-8 shadow-custom">
+                    <div class="h-16 w-16 rounded-full flex items-center justify-center mb-6" style="background: linear-gradient(135deg, #4CAF50, #6abe6e);">
+                        <i class="fas fa-shield-alt text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">끊김 없는 보장 유지</h3>
+                    <p class="text-gray-600">퇴직후에 건강보장이 더 절실합니다. 기존 단체보험 혜택을 최대한 유지하도록 다시 준비해드립니다</p>
+                </div>
+                
+                <!-- 혜택 2 -->
+                <div class="benefit-card bg-white rounded-xl p-8 shadow-custom">
+                    <div class="h-16 w-16 rounded-full flex items-center justify-center mb-6" style="background: linear-gradient(135deg, #4CAF50, #6abe6e);">
+                        <i class="fas fa-check text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">간편한 무심사 전환</h3>
+                    <p class="text-gray-600">조건만 충족하면 추가 건강검진이나 복잡한 심사 없이 간편하게 전환 가능합니다.</p>
+                </div>
+                
+                <!-- 혜택 3 -->
+                <div class="benefit-card bg-white rounded-xl p-8 shadow-custom">
+                    <div class="h-16 w-16 rounded-full flex items-center justify-center mb-6" style="background: linear-gradient(135deg, #4CAF50, #6abe6e);">
+                        <i class="fas fa-clock text-white text-3xl"></i>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-4">빠른 원스톱 처리</h3>
+                    <p class="text-gray-600">필요한 서류만 준비하면 전문 상담사가 모든 과정을 도와드립니다. 빠르고 간편하게 전환하세요.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 전환 프로세스 안내 -->
+    <section class="py-16" style="background: linear-gradient(135deg, #F5FBFD, #D6EAF8);">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">단체실손에서 개인실손으로, <span style="color: #4CAF50;">단 4단계면 끝!</span></h2>
+                <p class="text-lg text-gray-600">퇴직 후 보험전환 과정, 더 이상 복잡하지 않습니다</p>
+            </div>
+            
+            <div class="process-steps-container flex flex-row md:justify-between items-start mb-8 overflow-x-auto pb-4">
+                <!-- 1단계 -->
+                <div class="process-step text-center mb-10 md:mb-0 w-full md:w-1/6 flex-shrink-0 px-4">
+                    <div class="h-20 w-20 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color: #4CAF50;">
+                        <i class="fas fa-briefcase text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">단체실손</h3>
+                    <p class="text-gray-600">현재 상태</p>
+                </div>
+                
+                <!-- 2단계 -->
+                <div class="process-step text-center mb-10 md:mb-0 w-full md:w-1/6 flex-shrink-0 px-4">
+                    <div class="h-20 w-20 rounded-full bg-green-100 border-2 flex items-center justify-center mx-auto mb-4" style="border-color: #4CAF50;">
+                        <i class="fas fa-file-alt text-2xl" style="color: #4CAF50;"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">서류 준비</h3>
+                    <p class="text-gray-600">신분증, 퇴직증명서</p>
+                </div>
+                
+                <!-- 3단계 -->
+                <div class="process-step text-center mb-10 md:mb-0 w-full md:w-1/6 flex-shrink-0 px-4">
+                    <div class="h-20 w-20 rounded-full bg-green-100 border-2 flex items-center justify-center mx-auto mb-4" style="border-color: #4CAF50;">
+                        <i class="fas fa-edit text-2xl" style="color: #4CAF50;"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">신청서 작성</h3>
+                    <p class="text-gray-600">상담사 도움 제공</p>
+                </div>
+                
+                <!-- 4단계 -->
+                <div class="process-step text-center mb-10 md:mb-0 w-full md:w-1/6 flex-shrink-0 px-4">
+                    <div class="h-20 w-20 rounded-full bg-green-100 border-2 flex items-center justify-center mx-auto mb-4" style="border-color: #4CAF50;">
+                        <i class="fas fa-search text-2xl" style="color: #4CAF50;"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">심사 과정</h3>
+                    <p class="text-gray-600">조건 충족시 무심사</p>
+                </div>
+                
+                <!-- 5단계 -->
+                <div class="process-step text-center mb-10 md:mb-0 w-full md:w-1/6 flex-shrink-0 px-4">
+                    <div class="h-20 w-20 rounded-full bg-green-100 border-2 flex items-center justify-center mx-auto mb-4" style="border-color: #4CAF50;">
+                        <i class="fas fa-file-signature text-2xl" style="color: #4CAF50;"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2">계약 체결</h3>
+                    <p class="text-gray-600">전자서명으로 간편하게</p>
+                </div>
+                
+                <!-- 6단계 -->
+                <div class="process-step text-center mb-10 md:mb-0 w-full md:w-1/6 flex-shrink-0 px-4">
+                    <div class="h-20 w-20 rounded-full flex items-center justify-center mx-auto mb-4" style="background-color: #66BB6A;">
+                        <i class="fas fa-user-shield text-white text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-2" style="color: #66BB6A;">개인실손</h3>
+                    <p class="text-gray-600">전환 완료</p>
+                </div>
+            </div>
+            
+            <div class="text-center mt-12">
+                <p class="text-lg mb-6">빠르고 간편한 전환 과정, 어렵지 않습니다!</p>
+                <a href="#contact" class="btn-green text-lg font-bold py-3 px-6 rounded-lg inline-block">
+                    <i class="fas fa-arrow-right mr-2"></i>상담 예약하기
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 무심사 전환 자격 조건 -->
+    <section class="py-16 bg-green-50" id="conditions" style="background-color: #E8F5E9;">
+        <div class="container mx-auto px-4">
+            <div class="bg-white rounded-2xl shadow-custom p-8 md:p-12">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">무심사 전환 자격 조건, <span style="color: #4CAF50;">해당되시나요?</span></h2>
+                    <p class="text-lg text-gray-600">아래 조건을 모두 충족하면 건강검진 없이 무심사로 전환 가능합니다</p>
+                </div>
+                
+                <div class="max-w-3xl mx-auto">
+                    <div class="space-y-6">
+                        <!-- 조건 1 -->
+                        <div class="flex items-start p-4 bg-green-50 rounded-lg">
+                            <div class="check-icon bg-green-600 rounded-full p-2">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">5년이상 단체 실손보험을 가입하시고, 65세 이하이신가요?</h3>
+                                <p class="text-gray-600">만 65세까지 무심사 전환 가능합니다.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 조건 2 -->
+                        <div class="flex items-start p-4 bg-green-50 rounded-lg">
+                            <div class="check-icon bg-green-600 rounded-full p-2">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">최근 5년간 보험금 수령액이 200만원 이하인가요?</h3>
+                                <p class="text-gray-600">과도한 보험금 청구 이력이 없어야 합니다.</p>
+                            </div>
+                        </div>
+                        
+                        <!-- 조건 3 -->
+                        <div class="flex items-start p-4 bg-green-50 rounded-lg">
+                            <div class="check-icon bg-green-600 rounded-full p-2">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">10대 질병 치료 이력이 없으신가요?</h3>
+                                <p class="text-gray-600">암, 뇌졸중, 협심증, 심근경색 등 주요 질병 이력이 없어야 합니다.</p>
+                                <button class="text-green-600 font-medium mt-2 flex items-center" onclick="toggleDiseaseList()">
+                                    <span id="disease-toggle-text">10대 질병 목록 보기</span>
+                                    <i id="disease-toggle-icon" class="fas fa-chevron-down ml-1"></i>
+                                </button>
+                                <div id="disease-list" class="hidden mt-3 pl-4 border-l-2 border-green-200">
+                                    <ul class="text-gray-600 space-y-1">
+                                        <li>· 암</li>
+                                        <li>· 백혈병</li>
+                                        <li>· 고혈압</li>
+                                        <li>· 협심증</li>
+                                        <li>· 심근경색</li>
+                                        <li>· 심장판막증</li>
+                                        <li>· 간경화증</li>
+                                        <li>· 뇌졸중증(뇌출혈, 뇌경색)</li>
+                                        <li>· 당뇨병</li>
+                                        <li>· 에이즈(AIDS) 및 HIV보균자</li>                                        
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <!-- 조건 4 -->
+                        <div class="flex items-start p-4 bg-green-50 rounded-lg">
+                            <div class="check-icon bg-green-600 rounded-full p-2">
+                                <i class="fas fa-check text-white"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-bold mb-1">퇴직일로부터 1개월 이내이신가요?</h3>
+                                <p class="text-gray-600">퇴직 후 1개월이 지나면 무심사 혜택이 사라집니다.</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-10 text-center">
+                        <p class="text-lg mb-6 text-gray-700">무심사 자격이 안되시더라도 걱정마세요!</p>
+                        <a href="#contact" class="btn-green text-lg font-bold py-4 px-8 rounded-lg inline-block">
+                            <i class="fas fa-check-circle mr-2"></i>자격 조건 충족! 상담 신청하기
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 필요 서류 안내 -->
+    <section class="py-16 bg-white">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4"><span style="color: #4CAF50;">필요 서류</span>, 미리 준비하세요</h2>
+                <p class="text-lg text-gray-600">전환 신청을 위해 필요한 서류를 알려드립니다</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                <!-- 서류 1 -->
+                <div class="bg-green-50 rounded-xl p-6 shadow-md">
+                    <div class="h-16 w-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-id-card text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">신분증</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>주민등록증</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>운전면허증</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>여권</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 서류 2 -->
+                <div class="bg-green-50 rounded-xl p-6 shadow-md">
+                    <div class="h-16 w-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-file-alt text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">퇴직증명서</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>인사팀 발급</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>퇴직예정증명서로 대체 가능</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>회사 직인 필수</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 서류 3 -->
+                <div class="bg-green-50 rounded-xl p-6 shadow-md">
+                    <div class="h-16 w-16 bg-green-100 rounded-full flex items-center justify-center mb-6 mx-auto">
+                        <i class="fas fa-file-medical text-green-600 text-2xl"></i>
+                    </div>
+                    <h3 class="text-xl font-bold mb-3 text-center">보험 가입증명서</h3>
+                    <ul class="text-gray-600 space-y-2">
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>현 보험사 발급</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>단체보험 계약사항 포함</span>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-check text-green-500 mt-1 mr-2"></i>
+                            <span>상담사 도움 제공</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="text-center mt-10">
+                <div class="inline-block bg-green-100 text-green-800 rounded-lg p-4 max-w-2xl">
+                    <i class="fas fa-info-circle text-green-600 mr-2"></i>
+                    <span class="font-medium">서류 준비가 어려우신가요? 상담사에게 문의하시면 발급을 도와드립니다</span>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 자주 묻는 질문 (FAQ) -->
+    <section class="py-16" style="background-color: #E8F5E9;">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4"><span style="color: #4CAF50;">자주 묻는 질문</span> (FAQ)</h2>
+                <p class="text-lg text-gray-600">고객님들이 많이 궁금해하시는 사항들을 모았습니다</p>
+            </div>
+            
+            <div class="max-w-3xl mx-auto">
+                <!-- FAQ 아이템 1 -->
+                <div class="faq-item mb-4 rounded-lg overflow-hidden shadow-sm">
+                    <div class="faq-question text-white p-5 cursor-pointer flex justify-between items-center" style="background-color: #4CAF50;" onclick="toggleFaq(this)">
+                        <h3 class="text-lg md:text-xl font-bold">퇴직 후 1개월이 지났는데 전환이 가능한가요?</h3>
+                        <i class="fas fa-plus transform transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer bg-white p-0">
+                        <div class="p-5 border-t border-green-200">
+                            <p class="text-gray-600">무심사 전환은 <span class="font-bold" style="color: #4CAF50;">1개월 이내만 가능합니다.</span> 하지만 1개월이 지난 경우에도 일반 심사를 통한 가입이 가능하며, 저희가 최적의 상품을 안내해 드립니다. 건강 상태에 따라 가입 조건이 달라질 수 있으니 상담을 통해 정확한 안내를 받아보세요.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ 아이템 2 -->
+                <div class="faq-item mb-4 rounded-lg overflow-hidden shadow-sm">
+                    <div class="faq-question text-white p-5 cursor-pointer flex justify-between items-center" style="background-color: #4CAF50;" onclick="toggleFaq(this)">
+                        <h3 class="text-lg md:text-xl font-bold">10대 질병 중 하나를 앓고 있어도 전환이 가능한가요?</h3>
+                        <i class="fas fa-plus transform transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer bg-white p-0">
+                        <div class="p-5 border-t border-green-200">
+                            <p class="text-gray-600">무심사 전환은 어렵지만, <span class="font-bold" style="color: #4CAF50;">유병자 전용 상품이나 간편심사 상품으로 전환해 드립니다.</span> 최근 보험사들은 질병이 있는 분들도 가입할 수 있는 다양한 상품을 출시하고 있습니다. 상담을 통해 현재 건강상태에 가장 적합한 대안을 찾아보세요.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ 아이템 3 -->
+                <div class="faq-item mb-4 rounded-lg overflow-hidden shadow-sm">
+                    <div class="faq-question text-white p-5 cursor-pointer flex justify-between items-center" style="background-color: #4CAF50;" onclick="toggleFaq(this)">
+                        <h3 class="text-lg md:text-xl font-bold">전환 후 보험료는 얼마나 오르나요?</h3>
+                        <i class="fas fa-plus transform transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer bg-white p-0">
+                        <div class="p-5 border-t border-green-200">
+                            <p class="text-gray-600">단체보험보다는 보험료가 인상되지만, <span class="font-bold text-green-700">신규 가입보다는 유리합니다.</span> 구체적인 금액은 현재 보장 내용과 조건에 따라 달라집니다. 일반적으로 나이, 성별, 기존 보장 내용, 선택하는 개인실손 상품 종류에 따라 보험료가 결정됩니다. 상담을 통해 정확한 견적을 받아보세요.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ 아이템 4 -->
+                <div class="faq-item mb-4 rounded-lg overflow-hidden shadow-sm">
+                    <div class="faq-question bg-green-600 text-white p-5 cursor-pointer flex justify-between items-center" onclick="toggleFaq(this)">
+                        <h3 class="text-lg md:text-xl font-bold">다른 보험회사 상품으로 전환도 가능한가요?</h3>
+                        <i class="fas fa-plus transform transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer bg-white p-0">
+                        <div class="p-5 border-t border-green-200">
+                            <p class="text-gray-600"><span class="font-bold text-green-700">네, 가능합니다.</span> 현재 가입된 보험회사뿐만 아니라 다른 회사의 상품도 비교 분석하여 최적의 선택을 도와드립니다. 여러 보험사의 상품을 비교하여 보장 내용과 보험료를 종합적으로 검토한 후 결정하실 수 있습니다.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ 아이템 5 -->
+                <div class="faq-item mb-4 rounded-lg overflow-hidden shadow-sm">
+                    <div class="faq-question bg-green-600 text-white p-5 cursor-pointer flex justify-between items-center" onclick="toggleFaq(this)">
+                        <h3 class="text-lg md:text-xl font-bold">전환 과정에서 보장의 공백기가 생기나요?</h3>
+                        <i class="fas fa-plus transform transition-transform duration-300"></i>
+                    </div>
+                    <div class="faq-answer bg-white p-0">
+                        <div class="p-5 border-t border-green-200">
+                            <p class="text-gray-600"><span class="font-bold text-green-700">걱정 마세요.</span> 저희가 공백 없이 보장이 이어지도록 일정을 조율해 드립니다. 단체실손보험 종료일과 개인실손보험 시작일을 일치시켜 보장의 연속성을 유지하고, 필요한 경우 임시 보장 방안도 안내해 드립니다.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 신뢰도 구축 요소 -->
+    <section class="py-16 text-white" style="background: linear-gradient(135deg, #4CAF50, #66BB6A);">
+        <div class="container mx-auto px-4">
+            <div class="text-center mb-12">
+                <h2 class="text-3xl md:text-4xl font-bold mb-4">10,000명 이상이 선택한 믿을 수 있는 서비스</h2>
+                <p class="text-lg opacity-80">고객님의 건강과 안정을 최우선으로 생각합니다</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- 고객 후기 -->
+                <div class="bg-white text-gray-800 rounded-xl p-6 shadow-xl">
+                    <h3 class="text-xl font-bold mb-4 text-green-600">
+                        <i class="fas fa-quote-left mr-2"></i>
+                        고객 후기
+                    </h3>
+                    <div class="testimonial-slider" id="testimonial-slider">
+                        <div class="testimonials">
+                            <div class="testimonial p-2">
+                                <div class="bg-green-50 rounded-lg p-4 mb-4">
+                                    <p class="italic">"복잡할 줄 알았는데 정말 쉽게 전환했습니다. 퇴직 후 가장 걱정했던 보험 문제를 해결해주셔서 감사합니다."</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="bg-green-100 h-10 w-10 rounded-full flex items-center justify-center mr-3">
+                                        <span class="font-bold text-green-600">김</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold">김○○님</p>
+                                        <p class="text-sm text-gray-500">58세</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial p-2">
+                                <div class="bg-green-50 rounded-lg p-4 mb-4">
+                                    <p class="italic">"다른 곳은 심사가 필요하다고 했는데, 여기서는 무심사로 빠르게 전환해 주셨어요."</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="bg-green-100 h-10 w-10 rounded-full flex items-center justify-center mr-3">
+                                        <span class="font-bold text-green-600">박</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold">박○○님</p>
+                                        <p class="text-sm text-gray-500">62세</p>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="testimonial p-2">
+                                <div class="bg-green-50 rounded-lg p-4 mb-4">
+                                    <p class="italic">"친절한 상담과 명확한 설명으로 안심하고 전환할 수 있었습니다."</p>
+                                </div>
+                                <div class="flex items-center">
+                                    <div class="bg-green-100 h-10 w-10 rounded-full flex items-center justify-center mr-3">
+                                        <span class="font-bold text-green-600">이</span>
+                                    </div>
+                                    <div>
+                                        <p class="font-bold">이○○님</p>
+                                        <p class="text-sm text-gray-500">55세</p>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex justify-center mt-4">
+                            <button onclick="moveSlide(-1)" class="mx-1 w-2 h-2 rounded-full bg-green-300"></button>
+                            <button onclick="moveSlide(0)" class="mx-1 w-3 h-3 rounded-full bg-green-600"></button>
+                            <button onclick="moveSlide(1)" class="mx-1 w-2 h-2 rounded-full bg-green-300"></button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- 전문가 소개 -->
+                <div class="bg-white text-gray-800 rounded-xl p-6 shadow-xl">
+                    <h3 class="text-xl font-bold mb-4 text-green-600">
+                        <i class="fas fa-user-tie mr-2"></i>
+                        전문가 팀 소개
+                    </h3>
+                    <div class="flex items-center mb-4">
+                        <div class="bg-green-100 rounded-full p-4 mr-4">
+                            <i class="fas fa-users text-green-600 text-3xl"></i>
+                        </div>
+                        <div>
+                            <p class="font-bold text-lg">보험전환 전문 컨설턴트 팀</p>
+                            <p class="text-gray-600">평균 경력 10년 이상</p>
+                        </div>
+                    </div>
+                    <ul class="space-y-3 text-gray-600">
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>금융상품 판매 자격증 보유</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>보험사 출신 전문 컨설턴트</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>맞춤형 솔루션 제공</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-check-circle text-green-500 mr-2"></i>
+                            <span>정기적인 고객 만족도 관리</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 신뢰 인증 -->
+                <div class="bg-white text-gray-800 rounded-xl p-6 shadow-xl">
+                    <h3 class="text-xl font-bold mb-4 text-green-600">
+                        <i class="fas fa-shield-alt mr-2"></i>
+                        신뢰 인증
+                    </h3>
+                    <div class="grid grid-cols-4 gap-4 mb-6">
+                        <div class="bg-green-50 rounded-lg p-4 flex flex-col items-center justify-center">
+                            <i class="fas fa-file-contract text-green-600 text-3xl mb-2"></i>
+                            <p class="text-center text-sm font-medium">금융위원회<br>보도자료 기반</p>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-4 flex flex-col items-center justify-center">
+                            <i class="fas fa-lock text-green-600 text-3xl mb-2"></i>
+                            <p class="text-center text-sm font-medium">개인정보<br>보호 인증</p>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-4 flex flex-col items-center justify-center">
+                            <i class="fas fa-medal text-green-600 text-3xl mb-2"></i>
+                            <p class="text-center text-sm font-medium">고객만족도<br>95%</p>
+                        </div>
+                        <div class="bg-green-50 rounded-lg p-4 flex flex-col items-center justify-center">
+                            <i class="fas fa-handshake text-green-600 text-3xl mb-2"></i>
+                            <p class="text-center text-sm font-medium">금융소비자<br>보호 준수</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm">본 서비스는 금융위원회 2018.11.29 보도자료를 기반으로 제작되었습니다.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 상담 신청 폼 -->
+    <section class="py-16 bg-white" id="contact">
+        <div class="container mx-auto px-4">
+            <div class="max-w-3xl mx-auto">
+                <div class="text-center mb-12">
+                    <h2 class="text-3xl md:text-4xl font-bold mb-4">무료 <span style="color: #4FA8DE;">상담 신청</span></h2>
+                    <p class="text-lg text-gray-600">전문 상담사가 맞춤형 솔루션을 제안해 드립니다</p>
+                </div>
+                
+                <div class="bg-gray-50 rounded-2xl shadow-custom p-8 md:p-10">
+                    <form id="consultation-form" action="https://formsubmit.co/insu_center@naver.com" method="POST">
+                        <!-- Formsubmit 설정 -->
+                        <input type="hidden" name="_subject" value="🏥 단체실손보험 전환 상담 신청">
+                        <input type="hidden" name="_captcha" value="false">
+                        <input type="hidden" name="_template" value="table">
+                        <input type="hidden" name="_next" value="thank-you.html">
+                        
+                        <div class="space-y-6">
+                            <div class="relative">
+                                <label class="block text-gray-700 font-bold mb-2" for="name">
+                                    성명 <span class="text-red-500">*</span>
+                                </label>
+                                <div class="flex">
+                                    <div class="bg-green-100 rounded-l-lg px-4 flex items-center">
+                                        <i class="fas fa-user text-green-600"></i>
+                                    </div>
+                                    <input type="text" id="name" name="성명" required 
+                                        class="appearance-none border border-gray-300 rounded-r-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500" 
+                                        placeholder="홍길동">
+                                </div>
+                            </div>
+                            
+                            <div class="relative">
+                                <label class="block text-gray-700 font-bold mb-2" for="birthdate">
+                                    주민등록번호 앞 6자리 <span class="text-red-500">*</span>
+                                </label>
+                                <div class="flex">
+                                    <div class="bg-green-100 rounded-l-lg px-4 flex items-center">
+                                        <i class="fas fa-calendar-alt text-green-600"></i>
+                                    </div>
+                                    <input type="text" id="birthdate" name="생년월일" required maxlength="6" 
+                                        class="appearance-none border border-gray-300 rounded-r-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500" 
+                                        placeholder="예) 700101">
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">생년월일 확인용으로만 사용됩니다</p>
+                            </div>
+                            
+                            <div class="relative">
+                                <label class="block text-gray-700 font-bold mb-2" for="phone">
+                                    연락처 <span class="text-red-500">*</span>
+                                </label>
+                                <div class="flex">
+                                    <div class="bg-green-100 rounded-l-lg px-4 flex items-center">
+                                        <i class="fas fa-phone-alt text-green-600"></i>
+                                    </div>
+                                    <input type="tel" id="phone" name="연락처" required 
+                                        class="appearance-none border border-gray-300 rounded-r-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500" 
+                                        placeholder="010-0000-0000">
+                                </div>
+                            </div>
+                            
+                            <div class="relative">
+                                <label class="block text-gray-700 font-bold mb-2" for="company">
+                                    소속회사명 <span class="text-red-500">*</span>
+                                </label>
+                                <div class="flex">
+                                    <div class="bg-green-100 rounded-l-lg px-4 flex items-center">
+                                        <i class="fas fa-building text-green-600"></i>
+                                    </div>
+                                    <input type="text" id="company" name="소속회사명" required 
+                                        class="appearance-none border border-gray-300 rounded-r-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500" 
+                                        placeholder="회사명을 입력해주세요">
+                                </div>
+                            </div>
+                            
+                            <div class="relative">
+                                <label class="block text-gray-700 font-bold mb-2" for="retirement-date">
+                                    퇴직(예정)일 <span class="text-red-500">*</span>
+                                </label>
+                                <div class="flex">
+                                    <div class="bg-green-100 rounded-l-lg px-4 flex items-center">
+                                        <i class="fas fa-calendar-check text-green-600"></i>
+                                    </div>
+                                    <input type="date" id="retirement-date" name="퇴직예정일" required 
+                                        class="appearance-none border border-gray-300 rounded-r-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500">
+                                </div>
+                            </div>
+                            
+                            <!-- 추가 정보 필드 -->
+                            <div class="relative">
+                                <label class="block text-gray-700 font-bold mb-2" for="message">
+                                    상담 요청사항 (선택)
+                                </label>
+                                <div class="flex">
+                                    <div class="bg-green-100 rounded-l-lg px-4 flex items-start pt-3">
+                                        <i class="fas fa-comment text-green-600"></i>
+                                    </div>
+                                    <textarea id="message" name="상담요청사항" rows="3"
+                                        class="appearance-none border border-gray-300 rounded-r-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500" 
+                                        placeholder="궁금한 사항이나 특별히 상담받고 싶은 내용을 적어주세요"></textarea>
+                                </div>
+                            </div>
+                            
+                            <div class="relative pt-2">
+                                <div class="flex items-start mb-4">
+                                    <input id="privacy-agree" name="개인정보동의" type="checkbox" required value="동의"
+                                        class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 mt-1">
+                                    <label for="privacy-agree" class="ml-2 block text-sm text-gray-700">
+                                        개인정보 수집 및 이용에 동의합니다 <span class="text-red-500">*</span>
+                                        <a href="#" class="text-green-600 hover:underline ml-1">(보기)</a>
+                                    </label>
+                                </div>
+                                
+                                <div class="flex items-start">
+                                    <input id="marketing-agree" name="마케팅동의" type="checkbox" value="동의"
+                                        class="h-5 w-5 text-green-600 border-gray-300 rounded focus:ring-green-500 mt-1">
+                                    <label for="marketing-agree" class="ml-2 block text-sm text-gray-700">
+                                        보험 관련 정보 및 혜택 안내 수신에 동의합니다 (선택)
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="pt-4">
+                                <button type="submit" class="btn-green w-full text-xl font-bold py-4 px-8 rounded-lg">
+                                    <i class="fas fa-paper-plane mr-2"></i>상담 신청하기
+                                </button>
+                                <p class="text-sm text-gray-500 text-center mt-4">
+                                    <i class="fas fa-lock mr-1"></i>
+                                    입력하신 정보는 상담 목적으로만 사용되며, 안전하게 보호됩니다
+                                </p>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+   
+         
+            
+
+
+    <!-- 푸터 -->
+    <footer class="py-12 bg-gray-900 text-white">
+        <div class="container mx-auto px-4">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-10">
+                <!-- 회사 정보 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2">통합 상담 센터</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-phone-alt mt-1 mr-3 text-green-400"></i>
+                            <div>
+                                <p class="font-bold">1544-0432</p>
+                                <p class="text-sm text-gray-400">평일 9:00-18:00</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-envelope mt-1 mr-3 text-green-400"></i>
+                            <div>
+                                <p>insu_center@naver.com</p>
+                            </div>
+                        </li>
+                        <li class="flex items-start">
+                            <i class="fas fa-map-marker-alt mt-1 mr-3 text-green-400"></i>
+                            <div>
+                                <p>경기 성남시 중원구 광명로 316 12층<br>(금광동.CNC타워)</p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 법적 정보 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2">법적 정보</h3>
+                    <ul class="space-y-3">
+                        <li><a href="#" onclick="openModal(event, 'privacy')" class="hover:text-green-400 transition duration-300">개인정보처리방침</a></li>
+                        <li><a href="#" onclick="openModal(event, 'terms')" class="hover:text-green-400 transition duration-300">이용약관</a></li>
+                        <li><a href="#" onclick="openModal(event, 'consumer')" class="hover:text-green-400 transition duration-300">금융소비자보호 정책</a></li>
+                        <li><a href="#" onclick="openModal(event, 'disclosure')" class="hover:text-green-400 transition duration-300">공시정보</a></li>
+                    </ul>
+                </div>
+                
+                <!-- 참고 블로그 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2">참고 블로그</h3>
+                    <ul class="space-y-3">
+                        <li class="flex items-start">
+                            <i class="fas fa-blog mt-1 mr-3 text-green-400"></i>
+                            <a href="https://blog.naver.com/insu_center" target="_blank" class="hover:text-green-400 transition duration-300">
+                                보험 상담 센터 블로그
+                            </a>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- 출처 표기 -->
+                <div>
+                    <h3 class="text-xl font-bold mb-4 border-b border-gray-700 pb-2">인증 및 출처</h3>
+                    <div class="flex items-center space-x-4 mb-4">
+                        <div class="bg-gray-800 p-2 rounded">
+                            <i class="fas fa-shield-alt text-blue-400 text-2xl"></i>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded">
+                            <i class="fas fa-lock text-blue-400 text-2xl"></i>
+                        </div>
+                        <div class="bg-gray-800 p-2 rounded">
+                            <i class="fas fa-certificate text-blue-400 text-2xl"></i>
+                        </div>
+                    </div>
+                    <p class="text-gray-600 text-sm mb-2">본 서비스는 금융위원회 2018.11.29 보도자료를 기반으로 제작되었습니다.</p>
+                    <p class="text-sm text-gray-500">© 2025 통합 상담 센터. All rights reserved.</p>
+                </div>
+            </div>
+            
+            <div class="mt-10 pt-8 border-t border-gray-800 text-center text-sm text-gray-500">
+                <p>본 사이트의 정보는 법적 조언이 아니며, 정확한 내용은 상담을 통해 확인하시기 바랍니다.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        // FAQ 토글 기능
+        function toggleFaq(element) {
+            const parent = element.parentElement;
+            const icon = element.querySelector('i');
+            
+            // FAQ 항목 토글
+            parent.classList.toggle('faq-active');
+            
+            // 아이콘 변경
+            if (parent.classList.contains('faq-active')) {
+                icon.classList.remove('fa-plus');
+                icon.classList.add('fa-minus');
+            } else {
+                icon.classList.remove('fa-minus');
+                icon.classList.add('fa-plus');
+            }
+        }
+        
+        // 10대 질병 목록 토글 기능
+        function toggleDiseaseList() {
+            const diseaseList = document.getElementById('disease-list');
+            const toggleText = document.getElementById('disease-toggle-text');
+            const toggleIcon = document.getElementById('disease-toggle-icon');
+            
+            diseaseList.classList.toggle('hidden');
+            
+            if (diseaseList.classList.contains('hidden')) {
+                toggleText.innerText = '10대 질병 목록 보기';
+                toggleIcon.classList.remove('fa-chevron-up');
+                toggleIcon.classList.add('fa-chevron-down');
+            } else {
+                toggleText.innerText = '10대 질병 목록 접기';
+                toggleIcon.classList.remove('fa-chevron-down');
+                toggleIcon.classList.add('fa-chevron-up');
+            }
+        }
+        
+        // 페이지 로드시 헤더 상태 초기화
+        window.onload = function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 50) {
+                header.classList.remove('header-transparent');
+                header.classList.add('header-scrolled');
+                header.style.padding = '0.75rem 0';
+            } else {
+                header.classList.add('header-transparent');
+                header.classList.remove('header-scrolled');
+                header.style.padding = '1rem 0';
+            }
+        };
+        
+        // 헤더 스크롤 효과
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            
+            if (window.scrollY > 50) {
+                header.classList.remove('header-transparent');
+                header.classList.add('header-scrolled');
+                header.style.padding = '0.75rem 0';
+            } else {
+                header.classList.add('header-transparent');
+                header.classList.remove('header-scrolled');
+                header.style.padding = '1rem 0';
+            }
+        });
+        
+        // 테스티모니얼 슬라이더
+        let currentSlide = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        const slidesContainer = document.querySelector('.testimonials');
+        
+        function moveSlide(n) {
+            if (n === -1 && currentSlide > 0) currentSlide--;
+            else if (n === 1 && currentSlide < testimonials.length - 1) currentSlide++;
+            else if (n >= 0 && n < testimonials.length) currentSlide = n;
+            
+            slidesContainer.style.transform = `translateX(-${currentSlide * 100}%)`;
+            
+            // 인디케이터 업데이트
+            const indicators = document.querySelectorAll('.testimonial-slider button');
+            indicators.forEach((btn, i) => {
+                if (i === currentSlide) {
+                    btn.classList.add('w-3', 'h-3', 'bg-blue-600');
+                    btn.classList.remove('w-2', 'h-2', 'bg-blue-300');
+                } else {
+                    btn.classList.add('w-2', 'h-2', 'bg-blue-300');
+                    btn.classList.remove('w-3', 'h-3', 'bg-blue-600');
+                }
+            });
+        }
+        
+        // 자동 슬라이드
+        setInterval(() => {
+            currentSlide = (currentSlide + 1) % testimonials.length;
+            moveSlide(currentSlide);
+        }, 5000);
+        
+        // 폼 제출 처리
+        document.getElementById('consultation-form').addEventListener('submit', function(e) {
+            // 필수 약관 동의 확인
+            const privacyAgree = document.getElementById('privacy-agree');
+            if (!privacyAgree.checked) {
+                e.preventDefault();
+                alert('개인정보 수집 및 이용에 동의해주세요.');
+                privacyAgree.focus();
+                return;
+            }
+            
+            // 전화번호 형식 확인
+            const phone = document.getElementById('phone');
+            const phonePattern = /^01[0-9]-?[0-9]{3,4}-?[0-9]{4}$/;
+            if (!phonePattern.test(phone.value.replace(/-/g, ''))) {
+                e.preventDefault();
+                alert('올바른 휴대폰 번호를 입력해주세요. (예: 010-1234-5678)');
+                phone.focus();
+                return;
+            }
+            
+            // 생년월일 형식 확인 (6자리 숫자)
+            const birthdate = document.getElementById('birthdate');
+            const birthdatePattern = /^[0-9]{6}$/;
+            if (!birthdatePattern.test(birthdate.value)) {
+                e.preventDefault();
+                alert('주민등록번호 앞 6자리를 정확히 입력해주세요. (예: 701010)');
+                birthdate.focus();
+                return;
+            }
+            
+            // 제출 버튼 비활성화 (중복 제출 방지)
+            const submitBtn = this.querySelector('button[type="submit"]');
+            submitBtn.disabled = true;
+            submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>전송 중...';
+            
+            // 3초 후에 버튼 재활성화 (혹시 모를 에러 대비)
+            setTimeout(() => {
+                submitBtn.disabled = false;
+                submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>상담 신청하기';
+            }, 3000);
+            
+            // Formsubmit으로 폼 제출 진행
+            // e.preventDefault()를 제거하여 실제 폼 제출이 이루어지도록 함
+        });
+        
+        // 스무스 스크롤
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // 모달 열기 함수
+        function openModal(event, type) {
+            console.log('[ModalScript] openModal called for type:', type);
+            if (event) {
+                event.preventDefault();
+                console.log('[ModalScript] Default event prevented.');
+            }
+            const overlay = document.getElementById('modal-overlay');
+            const modal = document.getElementById('modal-' + type);
+
+            console.log('[ModalScript] Overlay element:', overlay);
+            console.log('[ModalScript] Modal element for ' + type + ':', modal);
+
+            if (overlay) {
+                overlay.classList.remove('hidden');
+                overlay.classList.add('flex');
+                console.log('[ModalScript] Overlay classes after open:', overlay.className);
+                console.log('[ModalScript] Overlay computed display style:', overlay.style.display, window.getComputedStyle(overlay).display);
+            } else {
+                console.error('[ModalScript] Modal overlay not found!');
+            }
+
+            if (modal) {
+                modal.classList.remove('hidden');
+                modal.classList.add('flex');
+                console.log('[ModalScript] Modal ' + type + ' classes after open:', modal.className);
+                console.log('[ModalScript] Modal ' + type + ' computed display style:', modal.style.display, window.getComputedStyle(modal).display);
+            } else {
+                console.error('[ModalScript] Modal element not found for type: ' + type);
+            }
+         }
+         // 모달 닫기 함수
+         function closeModal() {
+            console.log('[ModalScript] closeModal called');
+            const overlay = document.getElementById('modal-overlay');
+            if (overlay) {
+                overlay.classList.add('hidden');
+                overlay.classList.remove('flex');
+                console.log('[ModalScript] Overlay classes after close:', overlay.className);
+            } else {
+                console.error('[ModalScript] Modal overlay not found during close!');
+            }
+            
+            const modals = ['privacy', 'terms', 'consumer', 'disclosure'];
+            modals.forEach(function(type) {
+                const modalElement = document.getElementById('modal-' + type);
+                if (modalElement) {
+                    modalElement.classList.add('hidden');
+                    modalElement.classList.remove('flex');
+                } else {
+                    // This case might be okay if not all modals were opened
+                    // console.warn('[ModalScript] Modal element not found during close for type: ' + type);
+                }
+            });
+         }
+         // 오버레이 클릭 시 닫기
+        if (document.getElementById('modal-overlay')) {
+            document.getElementById('modal-overlay').onclick = closeModal;
+        }
+    </script>
+
+<!-- 법적 정보 모달들 (이 부분이 누락되었을 수 있으므로 다시 추가) -->
+<div id="modal-overlay" class="fixed inset-0 bg-black bg-opacity-50 z-50 hidden flex items-center justify-center"></div>
+
+<!-- 개인정보처리방침 모달 -->
+<div id="modal-privacy" class="fixed inset-0 z-50 hidden items-center justify-center">
+  <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-auto p-8 relative">
+    <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-green-600 text-2xl">&times;</button>
+    <h2 class="text-2xl font-bold mb-4">개인정보처리방침</h2>
+    <div class="text-gray-700 text-sm max-h-96 overflow-y-auto">
+      <p>본 사이트는 개인정보보호법 등 관련 법령을 준수하며, 고객님의 개인정보를 안전하게 보호합니다. 수집된 개인정보는 상담 및 서비스 제공 목적으로만 사용되며, 제3자에게 제공되지 않습니다. 자세한 내용은 본 방침을 참고해 주세요.</p>
+      <ul class="list-disc pl-5 mt-2">
+        <li>수집 항목: 이름, 연락처, 생년월일, 소속회사명 등</li>
+        <li>수집 목적: 상담 및 서비스 제공</li>
+        <li>보유 기간: 상담 완료 후 1년 또는 관련 법령에 따름</li>
+        <li>고객의 권리: 열람, 정정, 삭제 요청 가능</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- 이용약관 모달 -->
+<div id="modal-terms" class="fixed inset-0 z-50 hidden items-center justify-center">
+  <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-auto p-8 relative">
+    <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-green-600 text-2xl">&times;</button>
+    <h2 class="text-2xl font-bold mb-4">이용약관</h2>
+    <div class="text-gray-700 text-sm max-h-96 overflow-y-auto">
+      <p>본 사이트의 이용자는 아래 약관에 동의하는 것으로 간주합니다. 서비스 이용과 관련된 권리와 의무, 책임사항 등은 아래 약관을 참고해 주세요.</p>
+      <ul class="list-disc pl-5 mt-2">
+        <li>서비스 목적: 보험 상담 및 정보 제공</li>
+        <li>이용자의 의무: 정확한 정보 제공, 타인 권리 침해 금지</li>
+        <li>면책 조항: 제공된 정보는 참고용이며, 법적 책임을 지지 않습니다.</li>
+        <li>기타: 약관은 사전 고지 없이 변경될 수 있습니다.</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- 금융소비자보호 정책 모달 -->
+<div id="modal-consumer" class="fixed inset-0 z-50 hidden items-center justify-center">
+  <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-auto p-8 relative">
+    <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-green-600 text-2xl">&times;</button>
+    <h2 class="text-2xl font-bold mb-4">금융소비자보호 정책</h2>
+    <div class="text-gray-700 text-sm max-h-96 overflow-y-auto">
+      <p>고객님의 권익 보호를 위해 금융소비자보호법 등 관련 법령을 준수하며, 공정하고 투명한 상담 서비스를 제공합니다.</p>
+      <ul class="list-disc pl-5 mt-2">
+        <li>고객 불만 및 민원 처리 절차 운영</li>
+        <li>상품 설명의무 및 적합성 원칙 준수</li>
+        <li>개인정보 및 금융정보 보호 강화</li>
+        <li>고객의 알 권리 보장</li>
+      </ul>
+    </div>
+  </div>
+</div>
+<!-- 공시정보 모달 -->
+<div id="modal-disclosure" class="fixed inset-0 z-50 hidden items-center justify-center">
+  <div class="bg-white rounded-lg shadow-xl max-w-2xl w-full mx-auto p-8 relative">
+    <button onclick="closeModal()" class="absolute top-4 right-4 text-gray-500 hover:text-green-600 text-2xl">&times;</button>
+    <h2 class="text-2xl font-bold mb-4">공시정보</h2>
+    <div class="text-gray-700 text-sm max-h-96 overflow-y-auto">
+      <p>본 사이트는 관련 법령에 따라 주요 경영정보, 상품정보, 변경사항 등을 투명하게 공시합니다. 자세한 공시자료는 상담을 통해 안내받으실 수 있습니다.</p>
+      <ul class="list-disc pl-5 mt-2">
+        <li>경영공시: 회사의 주요 경영현황</li>
+        <li>상품공시: 보험상품의 주요 내용</li>
+        <li>변경공시: 약관, 상품 변경 시 안내</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>
+
+
