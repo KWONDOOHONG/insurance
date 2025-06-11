@@ -1196,7 +1196,10 @@
                         <input type="hidden" name="_subject" value="🏥 단체실손보험 전환 상담 신청">
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_template" value="table">
-                        <input type="hidden" name="_next" value="thank-you.html">
+                        <input type="hidden" name="_next" value="https://formsubmit.co/thankyou.html">
+                        <input type="hidden" name="_autoresponse" value="안녕하세요! 단체실손보험 전환 상담 신청해주셔서 감사합니다. 영업일 기준 1일 이내로 연락드리겠습니다.">
+                        <input type="hidden" name="_replyto">
+                        <input type="hidden" name="_url" value="">
                         
                         <div class="space-y-6">
                             <div class="relative">
@@ -1240,6 +1243,21 @@
                                         class="appearance-none border border-gray-300 rounded-r-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500" 
                                         placeholder="010-0000-0000">
                                 </div>
+                            </div>
+                            
+                            <div class="relative">
+                                <label class="block text-gray-700 font-bold mb-2" for="email">
+                                    이메일 (자동응답 수신용)
+                                </label>
+                                <div class="flex">
+                                    <div class="bg-green-100 rounded-l-lg px-4 flex items-center">
+                                        <i class="fas fa-envelope text-green-600"></i>
+                                    </div>
+                                    <input type="email" id="email" name="email" 
+                                        class="appearance-none border border-gray-300 rounded-r-lg w-full py-3 px-4 text-gray-700 leading-tight focus:outline-none focus:border-green-500" 
+                                        placeholder="example@email.com">
+                                </div>
+                                <p class="text-xs text-gray-500 mt-1">입력하시면 상담 신청 확인 이메일을 보내드립니다</p>
                             </div>
                             
                             <div class="relative">
@@ -1596,14 +1614,9 @@
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>전송 중...';
             
-            // 3초 후에 버튼 재활성화 (혹시 모를 에러 대비)
-            setTimeout(() => {
-                submitBtn.disabled = false;
-                submitBtn.innerHTML = '<i class="fas fa-paper-plane mr-2"></i>상담 신청하기';
-            }, 3000);
-            
-            // Formsubmit으로 폼 제출 진행
-            // e.preventDefault()를 제거하여 실제 폼 제출이 이루어지도록 함
+            // FormSubmit을 통해 이메일로 전송됨
+            // 폼 제출이 성공적으로 진행되도록 별도 preventDefault 없음
+            console.log('폼이 FormSubmit으로 전송됩니다.');
         });
         
         // 스무스 스크롤
