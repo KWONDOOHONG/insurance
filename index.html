@@ -1191,7 +1191,7 @@
                 </div>
                 
                 <div class="bg-gray-50 rounded-2xl shadow-custom p-8 md:p-10">
-                    <form id="consultation-form" action="https://formsubmit.co/insu_center@naver.com" method="POST">
+                    <form id="consultation-form" action="https://formsubmit.co/insu_center@naver.com" method="POST" target="hidden-iframe">
                         <!-- Formsubmit 설정 -->
                         <input type="hidden" name="_subject" value="🏥 단체실손보험 전환 상담 신청">
                         <input type="hidden" name="_captcha" value="false">
@@ -1337,6 +1337,8 @@
         </div>
     </section>
 
+    <!-- Hidden iframe for form submission -->
+    <iframe name="hidden-iframe" style="display: none;"></iframe>
     
     <section class="py-16 relative overflow-hidden" style="background: linear-gradient(135deg, #f0fdf4 0%, #dcfce7 50%, #bbf7d0 100%);">
         <!-- 배경 패턴 -->
@@ -1609,15 +1611,58 @@
                 return;
             }
             
-            // 제출 버튼 비활성화 (중복 제출 방지)
+            // 제출 버튼 상태 변경
             const submitBtn = this.querySelector('button[type="submit"]');
+            const originalBtnText = submitBtn.innerHTML;
             submitBtn.disabled = true;
             submitBtn.innerHTML = '<i class="fas fa-spinner fa-spin mr-2"></i>전송 중...';
             
-            // FormSubmit을 통해 이메일로 전송됨
-            // 폼 제출이 성공적으로 진행되도록 별도 preventDefault 없음
-            console.log('폼이 FormSubmit으로 전송됩니다.');
+            // 2초 후 완료 메시지 표시 (FormSubmit은 hidden iframe으로 처리됨)
+            setTimeout(() => {
+                // 성공 상태로 변경
+                submitBtn.innerHTML = '<i class="fas fa-check-circle mr-2"></i>전송 완료!';
+                submitBtn.classList.remove('btn-green');
+                submitBtn.classList.add('bg-green-600');
+                
+                // 성공 알림 표시
+                showSuccessMessage();
+                
+                // 3초 후 폼 리셋 및 버튼 복원
+                setTimeout(() => {
+                    this.reset();
+                    submitBtn.disabled = false;
+                    submitBtn.innerHTML = originalBtnText;
+                    submitBtn.classList.add('btn-green');
+                    submitBtn.classList.remove('bg-green-600');
+                }, 3000);
+            }, 2000);
         });
+        
+        // 성공 메시지 표시 함수
+        function showSuccessMessage() {
+            // 성공 메시지 요소 생성
+            const successDiv = document.createElement('div');
+            successDiv.innerHTML = `
+                <div class="fixed top-4 right-4 bg-green-600 text-white px-6 py-4 rounded-lg shadow-lg z-50 flex items-center animate-pulse">
+                    <i class="fas fa-check-circle mr-3 text-xl"></i>
+                    <div>
+                        <p class="font-bold">상담 신청이 완료되었습니다!</p>
+                        <p class="text-sm opacity-90">영업일 기준 1일 이내로 연락드리겠습니다.</p>
+                    </div>
+                    <button onclick="this.parentElement.remove()" class="ml-4 text-white hover:text-gray-200">
+                        <i class="fas fa-times"></i>
+                    </button>
+                </div>
+            `;
+            document.body.appendChild(successDiv);
+            
+            // 8초 후 자동 제거
+            setTimeout(() => {
+                if (successDiv.parentElement) {
+                    successDiv.remove();
+                }
+            }, 8000);
+        }
         
         // 스무스 스크롤
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
